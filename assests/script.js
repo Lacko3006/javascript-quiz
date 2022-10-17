@@ -1,5 +1,9 @@
 let generateBtn = document.querySelector("#button");
 
-generateBtn.addEventListener("click", function(){
-    alert("button was clicked");
-});
+generateBtn.addEventListener("click", buttonPress)
+
+function buttonPress() {
+    console.log("Hello")
+    window.alert("it pressed")
+}
+
