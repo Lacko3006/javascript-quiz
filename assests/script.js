@@ -32,31 +32,30 @@ function question1() {
   answerButtonElement3.textContent = answerChoice3;
   answerButtonElement4.textContent = answerChoice4;
 
-
-document.addEventListener("click", (event) => {
-  switch (event.target) {
-    case answerButtonElement1:
-      question2();
-      break
-    case answerButtonElement2:
-      
-      break
-    case answerButtonElement3:
-     
-      break
-    case answerButtonElement4:
-      
-      break
-  }
-  
-});
+  document.addEventListener("click", (event) => {
+    switch (event.target) {
+      case answerButtonElement1:
+        question2();
+        break;
+      case answerButtonElement2:
+        break;
+      case answerButtonElement3:
+        break;
+      case answerButtonElement4:
+        break;
+    }
+  });
 }
 
-
-
 function question2() {
-    const questionAsked2 = ["Who is the big green man?"]
-    const answerChoice1 = ["The Hulk"]
-    questionsAskedElement.textContent = questionAsked2
-    answerButtonElement1.textContent = answerChoice1
+  const questionAsked2 = ["Who is the big green man?"];
+  const answerChoice1 = ["The Hulk"];
+  const answerChoice2 = ["Thanos"];
+  const answerChoice3 = ["Colossus"];
+  const answerChoice4 = ["Groot"];
+  questionsAskedElement.textContent = questionAsked2;
+  answerButtonElement1.textContent = answerChoice1;
+  answerButtonElement2.textContent = answerChoice2;
+  answerButtonElement3.textContent = answerChoice3;
+  answerButtonElement4.textContent = answerChoice4;
 }
