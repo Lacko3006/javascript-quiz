@@ -33,8 +33,6 @@ function question1() {
   answerButtonElement4.textContent = answerChoice4;
 }
 
-answerButtonElement4.addEventListener("click", answer1);
-
-function answer1() {
+answerButtonElement2.addEventListener("click", event => {
   console.log("Hello");
-}
+})
