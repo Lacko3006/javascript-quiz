@@ -24,8 +24,8 @@ function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
   const answerChoice1 = ["Mjolnir"];
   const answerChoice2 = ["Gungir"];
-  const answerChoice3 = [];
-  const answerChoice4 = []
+  const answerChoice3 = ["Yaka Arrow"];
+  const answerChoice4 = ["Hellfire Chain"];
   questionsAskedElement.textContent = questionAsked1;
   answerButtonElement1.textContent = answerChoice1;
   answerButtonElement2.textContent = answerChoice2;
@@ -34,6 +34,7 @@ function question1() {
 }
 
 answerButtonElement4.addEventListener("click", answer1);
+
 function answer1() {
   console.log("Hello");
 }
