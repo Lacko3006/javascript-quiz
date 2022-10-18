@@ -5,6 +5,8 @@ let questionsAskedElement = document.querySelector("#questions");
 
 let questions = ["What is thors hammer called?"];
 
+//function showQuestions = (questions)
+
 questionStartBtn.addEventListener("click", quizStart);
 
 function quizStart() {
@@ -15,5 +17,4 @@ function quizStart() {
     questionTimerElement.textContent = countdown;
   }, 1000);
   questionsAskedElement.textContent = questions;
-  window.alert("it pressed");
 }
