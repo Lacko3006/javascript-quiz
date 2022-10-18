@@ -36,7 +36,7 @@ function question1() {
 document.addEventListener("click", (event) => {
   switch (event.target) {
     case answerButtonElement1:
-      console.log("hello");
+      question2();
       break
     case answerButtonElement2:
       console.log("Hello2");
@@ -49,3 +49,7 @@ document.addEventListener("click", (event) => {
       break
   }
 });
+
+function question2() {
+    console.log("Hello")
+}
