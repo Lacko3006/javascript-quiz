@@ -34,10 +34,10 @@ function quizStart() {
 
 function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
-  const answerChoice1 = ["Mjolnir"];
-  const answerChoice2 = ["Gungir"];
-  const answerChoice3 = ["Yaka Arrow"];
-  const answerChoice4 = ["Hellfire Chain"];
+  let answerChoice1 = ["Mjolnir"];
+  let answerChoice2 = ["Gungir"];
+  let answerChoice3 = ["Yaka Arrow"];
+  let answerChoice4 = ["Hellfire Chain"];
   questionsAskedElement.textContent = questionAsked1;
   answerButtonElement1.textContent = answerChoice1;
   answerButtonElement2.textContent = answerChoice2;
