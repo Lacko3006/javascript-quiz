@@ -33,6 +33,19 @@ function question1() {
   answerButtonElement4.textContent = answerChoice4;
 }
 
-answerButtonElement2.addEventListener("click", event => {
-  console.log("Hello");
-})
+document.addEventListener("click", (event) => {
+  switch (event.target) {
+    case answerButtonElement1:
+      console.log("hello");
+      break
+    case answerButtonElement2:
+      console.log("Hello2");
+      break
+    case answerButtonElement3:
+      console.log("Hell4");
+      break
+    case answerButtonElement4:
+      console.log("Hello3");
+      break
+  }
+});
