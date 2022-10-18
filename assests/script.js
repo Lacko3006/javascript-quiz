@@ -7,6 +7,8 @@ let answerButtonElement2 = document.querySelector("#button2");
 let answerButtonElement3 = document.querySelector("#button3");
 let answerButtonElement4 = document.querySelector("#button4");
 
+let timer;
+
 // let questions = [question1,];
 
 questionStartBtn.addEventListener("click", quizStart);
@@ -18,8 +20,12 @@ function quizStart() {
   timer = setInterval(() => {
     countdown--;
     questionTimerElement.textContent = countdown;
+    if (countdown === 0) {
+      loseGame();
+    }
   }, 1000);
 }
+
 function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
   const answerChoice1 = ["Mjolnir"];
@@ -62,10 +68,9 @@ function question2() {
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
-
         break;
       case answerButtonElement2:
-        console.log("Hello")
+        console.log("Hello");
         break;
       case answerButtonElement3:
         break;
@@ -73,4 +78,9 @@ function question2() {
         break;
     }
   });
+}
+
+function loseGame() {
+  clearInterval(timer);
+  console.log("hello");
 }
