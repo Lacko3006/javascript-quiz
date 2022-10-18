@@ -1,9 +1,19 @@
-let generateBtn = document.querySelector("#button");
+let questionStartBtn = document.querySelector("#button");
+let questionsElement = document.querySelector('#questions');
+let questionTimerElement = document.querySelector("#timer");
 
-generateBtn.addEventListener("click", buttonPress)
+questionStartBtn.addEventListener("click", quizStart)
 
-function buttonPress() {
-    console.log("Hello")
+function quizStart() {
+    countdown = 60 
+    questionTimerElement.textContent = countdown
+    timer = setInterval(() => {
+    countdown--
+    questionTimerElement.textContent = countdown
+    if (countdown <= 0) {
+      loseGame()
+    }
+  }, 1000)
     window.alert("it pressed")
 }
 
