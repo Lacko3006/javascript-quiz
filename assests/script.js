@@ -11,6 +11,7 @@ let feedbackTextElement = document.querySelector("#feedback");
 //let timer;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
+const feedbackClear = [""];
 
 // let questions = [question1,];
 
@@ -44,12 +45,9 @@ function question1() {
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
-        feedbackCountdown = 5;
-        feedbackTimer = setInterval(() => {
-        feedbackCountdown--;
         feedbackTextElement.textContent = feedbackRight
-        }, 1000);
         question2();
+        clearFeedback();
         break;
       case answerButtonElement2:
         feedbackTextElement.textContent = feedbackWrong;
@@ -94,4 +92,13 @@ function question2() {
 function loseGame() {
   clearInterval(timer);
   console.log("hello");
+}
+
+function clearFeedback(){
+    feedbackCountdown = 5;
+        feedbackTimer = setInterval(() => {
+        feedbackCountdown--;
+        feedbackTextElement.textContent = feedbackClear
+        console.log("hello");
+     }, 1000);
 }
