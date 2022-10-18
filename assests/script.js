@@ -91,7 +91,6 @@ function question2() {
 
 function loseGame() {
   clearInterval(timer);
-  console.log("hello");
 }
 
 function clearFeedback(){
@@ -99,6 +98,5 @@ function clearFeedback(){
         feedbackTimer = setInterval(() => {
         feedbackCountdown--;
         feedbackTextElement.textContent = feedbackClear
-        console.log("hello");
      }, 1000);
 }
