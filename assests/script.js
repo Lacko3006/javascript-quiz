@@ -48,7 +48,7 @@ function question1() {
 }
 
 function question2() {
-  const questionAsked2 = ["Who is the big green man?"];
+  const questionAsked2 = ["Who destroyed half the universe for preservation?"];
   const answerChoice1 = ["The Hulk"];
   const answerChoice2 = ["Thanos"];
   const answerChoice3 = ["Colossus"];
@@ -58,4 +58,19 @@ function question2() {
   answerButtonElement2.textContent = answerChoice2;
   answerButtonElement3.textContent = answerChoice3;
   answerButtonElement4.textContent = answerChoice4;
+
+  document.addEventListener("click", (event) => {
+    switch (event.target) {
+      case answerButtonElement1:
+
+        break;
+      case answerButtonElement2:
+        console.log("Hello")
+        break;
+      case answerButtonElement3:
+        break;
+      case answerButtonElement4:
+        break;
+    }
+  });
 }
