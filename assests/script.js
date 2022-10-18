@@ -51,7 +51,12 @@ document.addEventListener("click", (event) => {
   
 });
 }
+
+
+
 function question2() {
-    const questionAsked2 = 
-    console.log("Hello")
+    const questionAsked2 = ["Who is the big green man?"]
+    const answerChoice1 = ["The Hulk"]
+    questionsAskedElement.textContent = questionAsked2
+    answerButtonElement1.textContent = answerChoice1
 }
