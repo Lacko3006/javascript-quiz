@@ -1,3 +1,4 @@
+let titleElement = document.querySelector("#title");
 let questionStartBtn = document.querySelector("#button");
 let questionsElement = document.querySelector("#questions");
 let questionTimerElement = document.querySelector("#timer");
@@ -8,10 +9,11 @@ let answerButtonElement3 = document.querySelector("#button3");
 let answerButtonElement4 = document.querySelector("#button4");
 let feedbackTextElement = document.querySelector("#feedback");
 
-//let timer;
+let timer;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
 const feedbackClear = [""];
+const feedbackLose = ["You Lose!"]
 
 // let questions = [question1,];
 
@@ -90,6 +92,7 @@ function question2() {
 }
 
 function loseGame() {
+    titleElement.textContent = feedbackLose;
   clearInterval(timer);
 }
 
