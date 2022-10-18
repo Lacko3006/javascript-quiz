@@ -7,7 +7,7 @@ let answerButtonElement2 = document.querySelector("#button2");
 let answerButtonElement3 = document.querySelector("#button3");
 let answerButtonElement4 = document.querySelector("#button4");
 
-let questions = [question1];
+// let questions = [question1,];
 
 questionStartBtn.addEventListener("click", quizStart);
 
@@ -31,7 +31,7 @@ function question1() {
   answerButtonElement2.textContent = answerChoice2;
   answerButtonElement3.textContent = answerChoice3;
   answerButtonElement4.textContent = answerChoice4;
-}
+
 
 document.addEventListener("click", (event) => {
   switch (event.target) {
@@ -39,17 +39,19 @@ document.addEventListener("click", (event) => {
       question2();
       break
     case answerButtonElement2:
-      console.log("Hello2");
+      
       break
     case answerButtonElement3:
-      console.log("Hell4");
+     
       break
     case answerButtonElement4:
-      console.log("Hello3");
+      
       break
   }
+  
 });
-
+}
 function question2() {
+    const questionAsked2 = 
     console.log("Hello")
 }
