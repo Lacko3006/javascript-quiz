@@ -8,7 +8,7 @@ let answerButtonElement3 = document.querySelector("#button3");
 let answerButtonElement4 = document.querySelector("#button4");
 let feedbackTextElement = document.querySelector("#feedback");
 
-let timer;
+//let timer;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
 
@@ -44,6 +44,11 @@ function question1() {
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
+        feedbackCountdown = 5;
+        feedbackTimer = setInterval(() => {
+        feedbackCountdown--;
+        feedbackTextElement.textContent = feedbackRight
+        }, 1000);
         question2();
         break;
       case answerButtonElement2:
