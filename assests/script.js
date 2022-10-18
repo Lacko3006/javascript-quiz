@@ -6,8 +6,11 @@ let answerButtonElement1 = document.querySelector("#button1");
 let answerButtonElement2 = document.querySelector("#button2");
 let answerButtonElement3 = document.querySelector("#button3");
 let answerButtonElement4 = document.querySelector("#button4");
+let feedbackTextElement = document.querySelector("#feedback");
 
 let timer;
+const feedbackRight = ["Correct!"];
+const feedbackWrong = ["Wrong"];
 
 // let questions = [question1,];
 
@@ -44,10 +47,13 @@ function question1() {
         question2();
         break;
       case answerButtonElement2:
+        feedbackTextElement.textContent = feedbackWrong;
         break;
       case answerButtonElement3:
+        feedbackTextElement.textContent = feedbackWrong;
         break;
       case answerButtonElement4:
+        feedbackTextElement.textContent = feedbackWrong;
         break;
     }
   });
