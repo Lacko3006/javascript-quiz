@@ -1,19 +1,19 @@
 let questionStartBtn = document.querySelector("#button");
-let questionsElement = document.querySelector('#questions');
+let questionsElement = document.querySelector("#questions");
 let questionTimerElement = document.querySelector("#timer");
+let questionsAskedElement = document.querySelector("#questions");
 
-questionStartBtn.addEventListener("click", quizStart)
+let questions = ["What is thors hammer called?"];
+
+questionStartBtn.addEventListener("click", quizStart);
 
 function quizStart() {
-    countdown = 60 
-    questionTimerElement.textContent = countdown
-    timer = setInterval(() => {
-    countdown--
-    questionTimerElement.textContent = countdown
-    if (countdown <= 0) {
-      loseGame()
-    }
-  }, 1000)
-    window.alert("it pressed")
+  countdown = 60;
+  questionTimerElement.textContent = countdown;
+  timer = setInterval(() => {
+    countdown--;
+    questionTimerElement.textContent = countdown;
+  }, 1000);
+  questionsAskedElement.textContent = questions;
+  window.alert("it pressed");
 }
-
