@@ -1,24 +1,24 @@
-let titleElement = document.querySelector("#title");
-let questionStartBtn = document.querySelector("#button");
-let questionsElement = document.querySelector("#questions");
-let questionTimerElement = document.querySelector("#timer");
-let questionsAskedElement = document.querySelector("#questions");
-let answerButtonElement1 = document.querySelector("#button1");
-let answerButtonElement2 = document.querySelector("#button2");
-let answerButtonElement3 = document.querySelector("#button3");
-let answerButtonElement4 = document.querySelector("#button4");
-let feedbackTextElement = document.querySelector("#feedback");
-const arrayOfButton = document.querySelectorAll("article button")
+const titleElement = document.querySelector("#title");
+const questionStartBtn = document.querySelector("#button");
+const questionsElement = document.querySelector("#questions");
+const questionTimerElement = document.querySelector("#timer");
+const questionsAskedElement = document.querySelector("#questions");
+const answerButtonElement1 = document.querySelector("#button1");
+const answerButtonElement2 = document.querySelector("#button2");
+const answerButtonElement3 = document.querySelector("#button3");
+const answerButtonElement4 = document.querySelector("#button4");
+const feedbackTextElement = document.querySelector("#feedback");
+const arrayOfButton = document.querySelectorAll("article button");
 
-let questionArray = [question1, question2, question3, question4, question5]
+let questionArray = [question1, question2, question3, question4, question5];
 
-let selectedQuestion = 0
+let selectedQuestion = 1;
 
 for (let button of arrayOfButton) {
-  button.addEventListener ("click", buttonListener)
+  button.addEventListener("click", buttonListener);
 }
 
-let timer;
+let countdown;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
 const feedbackClear = [""];
@@ -30,7 +30,7 @@ function quizStart() {
   question1();
   countdown = 60;
   questionTimerElement.textContent = countdown;
-  timer = setInterval(() => {
+  const timer = setInterval(() => {
     countdown--;
     questionTimerElement.textContent = countdown;
     if (countdown === 0) {
@@ -47,13 +47,13 @@ function question1() {
   let question1Choice4 = ["Hellfire Chain"];
   questionsAskedElement.textContent = questionAsked1;
   answerButtonElement1.textContent = question1Choice1;
-  answerButtonElement1.dataset.isCorrect = true
+  answerButtonElement1.dataset.isCorrect = true;
   answerButtonElement2.textContent = question1Choice2;
-  answerButtonElement2.dataset.isCorrect = false
+  answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement3.textContent = question1Choice3;
-  answerButtonElement2.dataset.isCorrect = false
+  answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement4.textContent = question1Choice4;
-  answerButtonElement2.dataset.isCorrect = false
+  answerButtonElement2.dataset.isCorrect = false;
 
   // document.addEventListener("click", (event) => {
   //   switch (event.target) {
@@ -89,7 +89,7 @@ function question2() {
   answerButtonElement2.textContent = question2Choice2;
   answerButtonElement3.textContent = question2Choice3;
   answerButtonElement4.textContent = question2Choice4;
-
+  // code what answer is true / false
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
@@ -116,7 +116,7 @@ function question3() {
   answerButtonElement2.textContent = question3Choice2;
   answerButtonElement3.textContent = question3Choice3;
   answerButtonElement4.textContent = question3Choice4;
-
+  // code what answer is true / false
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
@@ -143,7 +143,7 @@ function question4() {
   answerButtonElement2.textContent = question4Choice2;
   answerButtonElement3.textContent = question4Choice3;
   answerButtonElement4.textContent = question4Choice4;
-
+  // code what answer is true / false
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
@@ -170,7 +170,7 @@ function question5() {
   answerButtonElement2.textContent = question5Choice2;
   answerButtonElement3.textContent = question5Choice3;
   answerButtonElement4.textContent = question5Choice4;
-
+  // code what answer is true / false
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
@@ -199,28 +199,27 @@ function clearFeedback() {
 }
 
 function questionWrong() {
-  timer -5;
-  console.log("Hello")
+  timer - 5;
+  console.log("Hello");
 }
 
-
-function buttonListener(event){
-    switch (event.target) {
-      case answerButtonElement1:
-        console.log(answerButtonElement1.dataset.isCorrect)
-        if (answerButtonElement1.dataset.isCorrect = true) {
-          selectedQuestion++;
-          questionArray[selectedQuestion]()
-          console.log("Hello")
-        } 
-        // console.log("Hello")
-        break;
-      case answerButtonElement2:
-        if (answerButtonElement2 !== true)
+function buttonListener(event) {
+  switch (event.target) {
+    case answerButtonElement1:
+      console.log(answerButtonElement1.dataset.isCorrect);
+      if (answerButtonElement1.dataset.isCorrect === "true") {
+        questionArray[selectedQuestion]();
+        selectedQuestion++;
+        console.log("Hello");
+      } // decrease timer(countdown) and remove score
+      else break;
+    case answerButtonElement2:
+      if (answerButtonElement2 !== true)
         // minus time function
         break;
-      case answerButtonElement3:
-        break;
-      case answerButtonElement4:
-        break;
-}}
+    case answerButtonElement3:
+      break;
+    case answerButtonElement4:
+      break;
+  }
+}
