@@ -12,6 +12,8 @@ const arrayOfButton = document.querySelectorAll("article button")
 
 let questionArray = [question1, question2, question3, question4, question5]
 
+let selectedQuestion = 0
+
 for (let button of arrayOfButton) {
   button.addEventListener ("click", buttonListener)
 }
@@ -207,9 +209,10 @@ function buttonListener(event){
       case answerButtonElement1:
         console.log(answerButtonElement1.dataset.isCorrect)
         if (answerButtonElement1.dataset.isCorrect = true) {
-          questionArray++
+          selectedQuestion++;
+          questionArray[selectedQuestion]()
           console.log("Hello")
-        }
+        } 
         // console.log("Hello")
         break;
       case answerButtonElement2:
