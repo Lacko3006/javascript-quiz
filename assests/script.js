@@ -34,15 +34,15 @@ function quizStart() {
 
 function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
-  let answerChoice1 = ["Mjolnir"];
-  let answerChoice2 = ["Gungir"];
-  let answerChoice3 = ["Yaka Arrow"];
-  let answerChoice4 = ["Hellfire Chain"];
+  let question1Choice1 = ["Mjolnir"];
+  let question1Choice2 = ["Gungir"];
+  let question1Choice3 = ["Yaka Arrow"];
+  let question1Choice4 = ["Hellfire Chain"];
   questionsAskedElement.textContent = questionAsked1;
-  answerButtonElement1.textContent = answerChoice1;
-  answerButtonElement2.textContent = answerChoice2;
-  answerButtonElement3.textContent = answerChoice3;
-  answerButtonElement4.textContent = answerChoice4;
+  answerButtonElement1.textContent = question1Choice1;
+  answerButtonElement2.textContent = question1Choice2;
+  answerButtonElement3.textContent = question1Choice3
+  answerButtonElement4.textContent = question1Choice4;
 
   document.addEventListener("click", (event) => {
     switch (event.target) {
@@ -66,15 +66,15 @@ function question1() {
 
 function question2() {
   const questionAsked2 = ["Who destroyed half the universe in order to sustain peace?"];
-  const answerChoice1 = ["The Hulk"];
-  const answerChoice2 = ["Thanos"];
-  const answerChoice3 = ["Colossus"];
-  const answerChoice4 = ["Groot"];
+  const question2Choice1 = ["The Hulk"];
+  const question2Choice2 = ["Thanos"];
+  const question2Choice3 = ["Colossus"];
+  const question2Choice4 = ["Groot"];
   questionsAskedElement.textContent = questionAsked2;
-  answerButtonElement1.textContent = answerChoice1;
-  answerButtonElement2.textContent = answerChoice2;
-  answerButtonElement3.textContent = answerChoice3;
-  answerButtonElement4.textContent = answerChoice4;
+  answerButtonElement1.textContent = question2Choice1;
+  answerButtonElement2.textContent = question2Choice2;
+  answerButtonElement3.textContent = question2Choice3;
+  answerButtonElement4.textContent = question2Choice4;
 
   document.addEventListener("click", (event) => {
     switch (event.target) {
@@ -93,15 +93,15 @@ function question2() {
 
 function question3() {
   const questionAsked3 = ["What is Iron Man's name?"]
-  const answerChoice1 = ["Steve Rogers"];
-  const answerChoice2 = ["Peter Quill"];
-  const answerChoice3 = ["Clint Barton"];
-  const answerChoice4 = ["Tony Stark"];
+  const question3Choice1= ["Steve Rogers"];
+  const question3Choice2 = ["Peter Quill"];
+  const question3Choice3 = ["Clint Barton"];
+  const question3Choice4 = ["Tony Stark"];
   questionsAskedElement.textContent = questionAsked3;
-  answerButtonElement1.textContent = answerChoice1;
-  answerButtonElement2.textContent = answerChoice2;
-  answerButtonElement3.textContent = answerChoice3;
-  answerButtonElement4.textContent = answerChoice4;
+  answerButtonElement1.textContent = question3Choice1;
+  answerButtonElement2.textContent = question3Choice2;
+  answerButtonElement3.textContent = question3Choice3;
+  answerButtonElement4.textContent = question3Choice4;
 
   document.addEventListener("click", (event) => {
     switch (event.target) {
