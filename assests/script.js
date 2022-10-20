@@ -140,15 +140,39 @@ function question4() {
       case answerButtonElement2:
         break;
       case answerButtonElement3:
+        question5();
         break;
       case answerButtonElement4:
-        console.log("Hello");
         break;
     }
   });
 }
 
+function question5() {
+  const questionAsked5 = ["What Animal is Rocket Racoon"];
+  const question5Choice1 = ["Racoon"];
+  const question5Choice2 = ["Rabbit"];
+  const question5Choice3 = ["Squirrel"];
+  const question5Choice4 = ["Dog"];
+  questionsAskedElement.textContent = questionAsked5;
+  answerButtonElement1.textContent = question5Choice1;
+  answerButtonElement2.textContent = question5Choice2;
+  answerButtonElement3.textContent = question5Choice3;
+  answerButtonElement4.textContent = question5Choice4;
 
+  document.addEventListener("click", (event) => {
+    switch (event.target) {
+      case answerButtonElement1:
+        break;
+      case answerButtonElement2:
+        break;
+      case answerButtonElement3:
+        break;
+      case answerButtonElement4:
+        break;
+    }
+  });
+}
 
 function loseGame() {
   titleElement.textContent = feedbackLose;
