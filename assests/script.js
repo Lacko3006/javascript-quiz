@@ -10,7 +10,7 @@ let answerButtonElement4 = document.querySelector("#button4");
 let feedbackTextElement = document.querySelector("#feedback");
 const arrayOfButton = document.querySelectorAll("article button")
 
-const questionArray = [question1, question2, question3, question4, question5]
+let questionArray = [question1, question2, question3, question4, question5]
 
 for (let button of arrayOfButton) {
   button.addEventListener ("click", buttonListener)
@@ -46,7 +46,6 @@ function question1() {
   questionsAskedElement.textContent = questionAsked1;
   answerButtonElement1.textContent = question1Choice1;
   answerButtonElement1.dataset.isCorrect = true
-  console.log(answerButtonElement1.dataset["isCorrect"])
   answerButtonElement2.textContent = question1Choice2;
   answerButtonElement2.dataset.isCorrect = false
   answerButtonElement3.textContent = question1Choice3;
@@ -207,7 +206,7 @@ function buttonListener(event){
     switch (event.target) {
       case answerButtonElement1:
         console.log(answerButtonElement1.dataset.isCorrect)
-        if (answerButtonElement1.dataset.isCorrect === true) {
+        if (answerButtonElement1.dataset.isCorrect = true) {
           questionArray++
           console.log("Hello")
         }
