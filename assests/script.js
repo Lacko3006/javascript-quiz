@@ -8,14 +8,19 @@ let answerButtonElement2 = document.querySelector("#button2");
 let answerButtonElement3 = document.querySelector("#button3");
 let answerButtonElement4 = document.querySelector("#button4");
 let feedbackTextElement = document.querySelector("#feedback");
+const arrayOfButton = document.querySelectorAll("article button")
+
+const questionArray = [question1, question2, question3, question4, question5]
+
+for (let button of arrayOfButton) {
+  button.addEventListener ("click", buttonListener)
+}
 
 let timer;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
 const feedbackClear = [""];
 const feedbackLose = ["You Lose!"];
-
-// let questions = [question1,];
 
 questionStartBtn.addEventListener("click", quizStart);
 
@@ -40,29 +45,34 @@ function question1() {
   let question1Choice4 = ["Hellfire Chain"];
   questionsAskedElement.textContent = questionAsked1;
   answerButtonElement1.textContent = question1Choice1;
+  answerButtonElement1.dataset.isCorrect = true
+  console.log(answerButtonElement1.dataset["isCorrect"])
   answerButtonElement2.textContent = question1Choice2;
+  answerButtonElement2.dataset.isCorrect = false
   answerButtonElement3.textContent = question1Choice3;
+  answerButtonElement2.dataset.isCorrect = false
   answerButtonElement4.textContent = question1Choice4;
+  answerButtonElement2.dataset.isCorrect = false
 
-  document.addEventListener("click", (event) => {
-    switch (event.target) {
-      case answerButtonElement1:
-        // feedbackTextElement.textContent = feedbackRight
-        question2();
-        clearFeedback();
-        event.preventDefault()
-        break;
-      case answerButtonElement2:
-        // feedbackTextElement.textContent = feedbackWrong;
-        break;
-      case answerButtonElement3:
-        // feedbackTextElement.textContent = feedbackWrong;
-        break;
-      case answerButtonElement4:
-        // feedbackTextElement.textContent = feedbackWrong;
-        break;
-    }
-  });
+  // document.addEventListener("click", (event) => {
+  //   switch (event.target) {
+  //     case answerButtonElement1:
+  //       // feedbackTextElement.textContent = feedbackRight
+  //       question2();
+  //       clearFeedback();
+  //       break;
+  //     case answerButtonElement2:
+  //       questionWrong();
+  //       // feedbackTextElement.textContent = feedbackWrong;
+  //       break;
+  //     case answerButtonElement3:
+  //       // feedbackTextElement.textContent = feedbackWrong;
+  //       break;
+  //     case answerButtonElement4:
+  //       // feedbackTextElement.textContent = feedbackWrong;
+  //       break;
+  //   }
+  // });
 }
 
 function question2() {
@@ -186,3 +196,29 @@ function clearFeedback() {
     feedbackTextElement.textContent = feedbackClear;
   }, 1000);
 }
+
+function questionWrong() {
+  timer -5;
+  console.log("Hello")
+}
+
+
+function buttonListener(event){
+    switch (event.target) {
+      case answerButtonElement1:
+        console.log(answerButtonElement1.dataset.isCorrect)
+        if (answerButtonElement1.dataset.isCorrect === true) {
+          questionArray++
+          console.log("Hello")
+        }
+        // console.log("Hello")
+        break;
+      case answerButtonElement2:
+        if (answerButtonElement2 !== true)
+        // minus time function
+        break;
+      case answerButtonElement3:
+        break;
+      case answerButtonElement4:
+        break;
+}}
