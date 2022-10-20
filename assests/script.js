@@ -13,7 +13,7 @@ let timer;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
 const feedbackClear = [""];
-const feedbackLose = ["You Lose!"]
+const feedbackLose = ["You Lose!"];
 
 // let questions = [question1,];
 
@@ -41,7 +41,7 @@ function question1() {
   questionsAskedElement.textContent = questionAsked1;
   answerButtonElement1.textContent = question1Choice1;
   answerButtonElement2.textContent = question1Choice2;
-  answerButtonElement3.textContent = question1Choice3
+  answerButtonElement3.textContent = question1Choice3;
   answerButtonElement4.textContent = question1Choice4;
 
   document.addEventListener("click", (event) => {
@@ -50,6 +50,7 @@ function question1() {
         // feedbackTextElement.textContent = feedbackRight
         question2();
         clearFeedback();
+        event.preventDefault()
         break;
       case answerButtonElement2:
         // feedbackTextElement.textContent = feedbackWrong;
@@ -65,7 +66,9 @@ function question1() {
 }
 
 function question2() {
-  const questionAsked2 = ["Who destroyed half the universe in order to sustain peace?"];
+  const questionAsked2 = [
+    "Who destroyed half the universe in order to sustain peace?",
+  ];
   const question2Choice1 = ["The Hulk"];
   const question2Choice2 = ["Thanos"];
   const question2Choice3 = ["Colossus"];
@@ -81,7 +84,7 @@ function question2() {
       case answerButtonElement1:
         break;
       case answerButtonElement2:
-        question3()
+        question3();
         break;
       case answerButtonElement3:
         break;
@@ -92,8 +95,8 @@ function question2() {
 }
 
 function question3() {
-  const questionAsked3 = ["What is Iron Man's name?"]
-  const question3Choice1= ["Steve Rogers"];
+  const questionAsked3 = ["What is Iron Man's name?"];
+  const question3Choice1 = ["Steve Rogers"];
   const question3Choice2 = ["Peter Quill"];
   const question3Choice3 = ["Clint Barton"];
   const question3Choice4 = ["Tony Stark"];
@@ -112,25 +115,50 @@ function question3() {
       case answerButtonElement3:
         break;
       case answerButtonElement4:
-        console.log("Hello")
+        question4();
+        break;
+    }
+  });
+}
+
+function question4() {
+  const questionAsked4 = ["What Color is Captain Americas Shield?"];
+  const question4Choice1 = ["Black, Red & White"];
+  const question4Choice2 = ["Pink, Yellow & Purple"];
+  const question4Choice3 = ["Red, White & Blue"];
+  const question4Choice4 = ["Cyan, Purple & Black"];
+  questionsAskedElement.textContent = questionAsked4;
+  answerButtonElement1.textContent = question4Choice1;
+  answerButtonElement2.textContent = question4Choice2;
+  answerButtonElement3.textContent = question4Choice3;
+  answerButtonElement4.textContent = question4Choice4;
+
+  document.addEventListener("click", (event) => {
+    switch (event.target) {
+      case answerButtonElement1:
+        break;
+      case answerButtonElement2:
+        break;
+      case answerButtonElement3:
+        break;
+      case answerButtonElement4:
+        console.log("Hello");
         break;
     }
   });
 }
 
 
-// goes back to question 1 when pressing answerButton1 on question 3
-
 
 function loseGame() {
-    titleElement.textContent = feedbackLose;
+  titleElement.textContent = feedbackLose;
   clearInterval(timer);
 }
 
-function clearFeedback(){
-    feedbackCountdown = 5;
-        feedbackTimer = setInterval(() => {
-        feedbackCountdown--;
-        feedbackTextElement.textContent = feedbackClear
-     }, 1000);
+function clearFeedback() {
+  feedbackCountdown = 5;
+  feedbackTimer = setInterval(() => {
+    feedbackCountdown--;
+    feedbackTextElement.textContent = feedbackClear;
+  }, 1000);
 }
