@@ -47,25 +47,25 @@ function question1() {
   document.addEventListener("click", (event) => {
     switch (event.target) {
       case answerButtonElement1:
-        feedbackTextElement.textContent = feedbackRight
+        // feedbackTextElement.textContent = feedbackRight
         question2();
         clearFeedback();
         break;
       case answerButtonElement2:
-        feedbackTextElement.textContent = feedbackWrong;
+        // feedbackTextElement.textContent = feedbackWrong;
         break;
       case answerButtonElement3:
-        feedbackTextElement.textContent = feedbackWrong;
+        // feedbackTextElement.textContent = feedbackWrong;
         break;
       case answerButtonElement4:
-        feedbackTextElement.textContent = feedbackWrong;
+        // feedbackTextElement.textContent = feedbackWrong;
         break;
     }
   });
 }
 
 function question2() {
-  const questionAsked2 = ["Who destroyed half the universe for preservation?"];
+  const questionAsked2 = ["Who destroyed half the universe in order to sustain peace?"];
   const answerChoice1 = ["The Hulk"];
   const answerChoice2 = ["Thanos"];
   const answerChoice3 = ["Colossus"];
@@ -81,7 +81,7 @@ function question2() {
       case answerButtonElement1:
         break;
       case answerButtonElement2:
-        console.log("Hello");
+        question3()
         break;
       case answerButtonElement3:
         break;
@@ -90,6 +90,37 @@ function question2() {
     }
   });
 }
+
+function question3() {
+  const questionAsked3 = ["What is Iron Man's name?"]
+  const answerChoice1 = ["Steve Rogers"];
+  const answerChoice2 = ["Peter Quill"];
+  const answerChoice3 = ["Clint Barton"];
+  const answerChoice4 = ["Tony Stark"];
+  questionsAskedElement.textContent = questionAsked3;
+  answerButtonElement1.textContent = answerChoice1;
+  answerButtonElement2.textContent = answerChoice2;
+  answerButtonElement3.textContent = answerChoice3;
+  answerButtonElement4.textContent = answerChoice4;
+
+  document.addEventListener("click", (event) => {
+    switch (event.target) {
+      case answerButtonElement1:
+        break;
+      case answerButtonElement2:
+        break;
+      case answerButtonElement3:
+        break;
+      case answerButtonElement4:
+        console.log("Hello")
+        break;
+    }
+  });
+}
+
+
+// goes back to question 1 when pressing answerButton1 on question 3
+
 
 function loseGame() {
     titleElement.textContent = feedbackLose;
