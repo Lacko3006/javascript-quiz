@@ -54,26 +54,6 @@ function question1() {
   answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement4.textContent = question1Choice4;
   answerButtonElement2.dataset.isCorrect = false;
-
-  // document.addEventListener("click", (event) => {
-  //   switch (event.target) {
-  //     case answerButtonElement1:
-  //       // feedbackTextElement.textContent = feedbackRight
-  //       question2();
-  //       clearFeedback();
-  //       break;
-  //     case answerButtonElement2:
-  //       questionWrong();
-  //       // feedbackTextElement.textContent = feedbackWrong;
-  //       break;
-  //     case answerButtonElement3:
-  //       // feedbackTextElement.textContent = feedbackWrong;
-  //       break;
-  //     case answerButtonElement4:
-  //       // feedbackTextElement.textContent = feedbackWrong;
-  //       break;
-  //   }
-  // });
 }
 
 function question2() {
