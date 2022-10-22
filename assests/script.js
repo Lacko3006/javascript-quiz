@@ -51,9 +51,9 @@ function question1() {
   answerButtonElement2.textContent = question1Choice2;
   answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement3.textContent = question1Choice3;
-  answerButtonElement2.dataset.isCorrect = false;
+  answerButtonElement3.dataset.isCorrect = false;
   answerButtonElement4.textContent = question1Choice4;
-  answerButtonElement2.dataset.isCorrect = false;
+  answerButtonElement4.dataset.isCorrect = false;
 }
 
 function question2() {
@@ -66,8 +66,11 @@ function question2() {
   const question2Choice4 = ["Groot"];
   questionsAskedElement.textContent = questionAsked2;
   answerButtonElement1.textContent = question2Choice1;
+
   answerButtonElement2.textContent = question2Choice2;
+
   answerButtonElement3.textContent = question2Choice3;
+  
   answerButtonElement4.textContent = question2Choice4;
   // code what answer is true / false
   document.addEventListener("click", (event) => {
