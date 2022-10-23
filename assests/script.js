@@ -19,6 +19,11 @@ for (let button of arrayOfButton) {
   button.addEventListener("click", buttonListener);
 }
 
+answerButtonElement1.style.visibility = "hidden";
+answerButtonElement2.style.visibility = "hidden";
+answerButtonElement3.style.visibility = "hidden";
+answerButtonElement4.style.visibility = "hidden";
+
 let scoreBoard = 0;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
@@ -28,6 +33,10 @@ const feedbackLose = ["You Lose!"];
 questionStartBtn.addEventListener("click", quizStart);
 
 function quizStart() {
+  answerButtonElement1.style.visibility = "visible";
+  answerButtonElement2.style.visibility = "visible";
+  answerButtonElement3.style.visibility = "visible";
+  answerButtonElement4.style.visibility = "visible";
   questionCorrect();
   question1();
   countdown = 60;
@@ -128,19 +137,6 @@ function question5() {
   answerButtonElement3.dataset.isCorrect = false;
   answerButtonElement4.textContent = question5Choice4;
   answerButtonElement4.dataset.isCorrect = false;
-  // code what answer is true / false
-  document.addEventListener("click", (event) => {
-    switch (event.target) {
-      case answerButtonElement1:
-        break;
-      case answerButtonElement2:
-        break;
-      case answerButtonElement3:
-        break;
-      case answerButtonElement4:
-        break;
-    }
-  });
 }
 
 function loseGame() {
@@ -157,50 +153,67 @@ function clearFeedback() {
 }
 
 function questionWrong() {
-  countdown - 5;
-  console.log("Hello");
+  scoreBoardElement.textContent = scoreBoard;
+  countdown -= 5;
+  scoreBoard -= 3;
+  if (scoreBoard === 0){
+    scoreBoard = 0;
+  }
 }
 
 function questionCorrect(){
-  scoreBoardElement.textContent = scoreBoard
-scoreBoard + 5;
+  scoreBoardElement.textContent = scoreBoard;
+  scoreBoard += 5;
+
 }
 
 function buttonListener(event) {
   switch (event.target) {
     case answerButtonElement1:
       if (answerButtonElement1.dataset.isCorrect === "true") {
+        questionCorrect()
         questionArray[selectedQuestion]();
         selectedQuestion++;
-        break;
-      } // decrease timer(countdown) and remove score
-      else break;
-
+        break; 
+      } else {
+      if (answerButtonElement1.dataset.isCorrect !== true)
+   questionWrong();;
+   break;
+  }
     case answerButtonElement2:
       if (answerButtonElement2.dataset.isCorrect === "true") {
+        questionCorrect();
         questionArray[selectedQuestion]();
         selectedQuestion++;
-        break;
-      } // decrease timer(countdown) and remove score
+        break; }
       else {
-      if (answerButtonElement2 !== true)
+      if (answerButtonElement2.dataset.isCorrect !== true)
         questionWrong();
-        // minus time function
-        break;}
+        break;
+      }
     case answerButtonElement3:
       console.log(answerButtonElement1.dataset.isCorrect);
       if (answerButtonElement3.dataset.isCorrect === "true") {
+        questionCorrect();
         questionArray[selectedQuestion]();
         selectedQuestion++;
         break;
-      } else break;
+      } else {
+        if (answerButtonElement3.dataset.isCorrect !== true)
+        questionWrong();
+        break;
+      }
     case answerButtonElement4:
       if (answerButtonElement4.dataset.isCorrect === "true") {
+        questionCorrect();
         questionArray[selectedQuestion]();
         selectedQuestion++
         break;
-      }
-      else break;
+      } else {
+        if (answerButtonElement4.dataset.isCorrect !== true)
+      questionWrong()
+      break;
+    }
   }
 }
 
