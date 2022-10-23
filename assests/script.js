@@ -66,26 +66,13 @@ function question2() {
   const question2Choice4 = ["Groot"];
   questionsAskedElement.textContent = questionAsked2;
   answerButtonElement1.textContent = question2Choice1;
-
+  answerButtonElement1.dataset.isCorrect = false;
   answerButtonElement2.textContent = question2Choice2;
-
+  answerButtonElement2.dataset.isCorrect = true;
   answerButtonElement3.textContent = question2Choice3;
-  
+  answerButtonElement3.dataset.isCorrect = false;
   answerButtonElement4.textContent = question2Choice4;
-  // code what answer is true / false
-  document.addEventListener("click", (event) => {
-    switch (event.target) {
-      case answerButtonElement1:
-        break;
-      case answerButtonElement2:
-        question3();
-        break;
-      case answerButtonElement3:
-        break;
-      case answerButtonElement4:
-        break;
-    }
-  });
+  answerButtonElement4.dataset.isCorrect = false;
 }
 
 function question3() {
@@ -96,24 +83,14 @@ function question3() {
   const question3Choice4 = ["Tony Stark"];
   questionsAskedElement.textContent = questionAsked3;
   answerButtonElement1.textContent = question3Choice1;
+  answerButtonElement1.dataset.isCorrect = false;
   answerButtonElement2.textContent = question3Choice2;
+  answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement3.textContent = question3Choice3;
+  answerButtonElement3.dataset.isCorrect = false;
   answerButtonElement4.textContent = question3Choice4;
-  // code what answer is true / false
-  document.addEventListener("click", (event) => {
-    switch (event.target) {
-      case answerButtonElement1:
-        break;
-      case answerButtonElement2:
-        break;
-      case answerButtonElement3:
-        break;
-      case answerButtonElement4:
-        question4();
-        break;
-    }
-  });
-}
+  answerButtonElement4.dataset.isCorrect = true;
+  }
 
 function question4() {
   const questionAsked4 = ["What Color is Captain Americas Shield?"];
@@ -123,23 +100,13 @@ function question4() {
   const question4Choice4 = ["Cyan, Purple & Black"];
   questionsAskedElement.textContent = questionAsked4;
   answerButtonElement1.textContent = question4Choice1;
+  answerButtonElement1.dataset.isCorrect = false;
   answerButtonElement2.textContent = question4Choice2;
+  answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement3.textContent = question4Choice3;
+  answerButtonElement3.dataset.isCorrect = true;
   answerButtonElement4.textContent = question4Choice4;
-  // code what answer is true / false
-  document.addEventListener("click", (event) => {
-    switch (event.target) {
-      case answerButtonElement1:
-        break;
-      case answerButtonElement2:
-        break;
-      case answerButtonElement3:
-        question5();
-        break;
-      case answerButtonElement4:
-        break;
-    }
-  });
+  answerButtonElement4.dataset.isCorrect = false;
 }
 
 function question5() {
@@ -189,20 +156,37 @@ function questionWrong() {
 function buttonListener(event) {
   switch (event.target) {
     case answerButtonElement1:
-      console.log(answerButtonElement1.dataset.isCorrect);
       if (answerButtonElement1.dataset.isCorrect === "true") {
         questionArray[selectedQuestion]();
         selectedQuestion++;
-        console.log("Hello");
+        break;
       } // decrease timer(countdown) and remove score
       else break;
+
     case answerButtonElement2:
-      if (answerButtonElement2 !== true)
-        // minus time function
+      if (answerButtonElement2.dataset.isCorrect === "true") {
+        questionArray[selectedQuestion]();
+        selectedQuestion++;
         break;
+      } // decrease timer(countdown) and remove score
+      else {
+      if (answerButtonElement2 !== true)
+        
+        // minus time function
+        break;}
     case answerButtonElement3:
-      break;
+      console.log(answerButtonElement1.dataset.isCorrect);
+      if (answerButtonElement3.dataset.isCorrect === "true") {
+        questionArray[selectedQuestion]();
+        selectedQuestion++;
+        break;
+      } else break;
     case answerButtonElement4:
-      break;
+      if (answerButtonElement4.dataset.isCorrect === "true") {
+        questionArray[selectedQuestion]();
+        selectedQuestion++
+        break;
+      }
+      else break;
   }
 }
