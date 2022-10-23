@@ -7,14 +7,21 @@ const answerButtonElement1 = document.querySelector("#button1");
 const answerButtonElement2 = document.querySelector("#button2");
 const answerButtonElement3 = document.querySelector("#button3");
 const answerButtonElement4 = document.querySelector("#button4");
-const submitButtonElement = document.querySelector("#submit-button")
+const submitButtonElement = document.querySelector("#submit-button");
 const feedbackTextElement = document.querySelector("#feedback");
 const scoreBoardElement = document.querySelector("#scoreboard");
 const arrayOfButton = document.querySelectorAll("article button");
 const inputElement = document.querySelector("#textbox");
 const inputText = document.querySelector("#text");
 
-let questionArray = [question1, question2, question3, question4, question5, submitPage];
+let questionArray = [
+  question1,
+  question2,
+  question3,
+  question4,
+  question5,
+  submitPage,
+];
 
 let selectedQuestion = 1;
 
@@ -101,7 +108,7 @@ function question3() {
   answerButtonElement3.dataset.isCorrect = false;
   answerButtonElement4.textContent = question3Choice4;
   answerButtonElement4.dataset.isCorrect = true;
-  }
+}
 
 function question4() {
   const questionAsked4 = ["What Color is Captain Americas Shield?"];
@@ -140,7 +147,6 @@ function question5() {
 function loseGame() {
   titleElement.textContent = feedbackLose;
   clearInterval(timer);
-
 }
 
 function clearFeedback() {
@@ -154,37 +160,34 @@ function clearFeedback() {
 function questionWrong() {
   scoreBoardElement.textContent = scoreBoard;
   countdown -= 5;
-  scoreBoard -= 3;
+  scoreBoard =- 3;
 }
 
-function questionCorrect(){
+function questionCorrect() {
   scoreBoardElement.textContent = scoreBoard;
-  scoreBoard += 5;
-
+  scoreBoard =+ 5;
 }
 
 function buttonListener(event) {
   switch (event.target) {
     case answerButtonElement1:
       if (answerButtonElement1.dataset.isCorrect === "true") {
-        questionCorrect()
+        questionCorrect();
         questionArray[selectedQuestion]();
         selectedQuestion++;
-        break; 
+        break;
       } else {
-      if (answerButtonElement1.dataset.isCorrect !== true)
-   questionWrong();
-   break;
-  }
+        if (answerButtonElement1.dataset.isCorrect !== true) questionWrong();
+        break;
+      }
     case answerButtonElement2:
       if (answerButtonElement2.dataset.isCorrect === "true") {
         questionCorrect();
         questionArray[selectedQuestion]();
         selectedQuestion++;
-        break; }
-      else {
-      if (answerButtonElement2.dataset.isCorrect !== true)
-        questionWrong();
+        break;
+      } else {
+        if (answerButtonElement2.dataset.isCorrect !== true) questionWrong();
         break;
       }
     case answerButtonElement3:
@@ -195,21 +198,19 @@ function buttonListener(event) {
         selectedQuestion++;
         break;
       } else {
-        if (answerButtonElement3.dataset.isCorrect !== true)
-        questionWrong();
+        if (answerButtonElement3.dataset.isCorrect !== true) questionWrong();
         break;
       }
     case answerButtonElement4:
       if (answerButtonElement4.dataset.isCorrect === "true") {
         questionCorrect();
         questionArray[selectedQuestion]();
-        selectedQuestion++
+        selectedQuestion++;
         break;
       } else {
-        if (answerButtonElement4.dataset.isCorrect !== true)
-      questionWrong()
-      break;
-    }
+        if (answerButtonElement4.dataset.isCorrect !== true) questionWrong();
+        break;
+      }
   }
 }
 
@@ -237,19 +238,17 @@ function submitPage() {
   answerButtonElement4.style.visibility = "hidden";
   questionsAskedElement.style.visibility = "hidden";
   inputElement.style.visibility = "visible";
-  submitButtonElement.style.visibility = "visible"
+  submitButtonElement.style.visibility = "visible";
 }
 
-//submitButtonElement.addEventListener("click", saveInput);
 inputElement.addEventListener("input", updateValue);
 
 function updateValue(initials) {
   inputText.textContent = initials.target.value;
 }
 
-submitButtonElement.addEventListener("click", saveInput)
-function saveInput(){
-  console.log("hello")
-  localStorage.setItem("Initials", inputText.textContent)
-  
+submitButtonElement.addEventListener("click", saveInput);
+function saveInput() {
+  localStorage.setItem("Initials", inputText.textContent);
+  localStorage.setItem("Score", scoreBoard);
 }
