@@ -51,6 +51,8 @@ function quizStart() {
     questionTimerElement.textContent = countdown;
     if (countdown === 0 || countdown < 0) {
       loseGame();
+      clearInterval(timer);
+      clearFeedback();
     }
   }, 1000);
 }
@@ -151,17 +153,14 @@ function loseGame() {
 }
 
 function clearFeedback() {
-  feedbackCountdown = 10;
-  feedbackTimer = setInterval(() => {
-    feedbackCountdown--;
     feedbackTextElement.textContent = feedbackClear;
-  }, 1000);
 }
 
 function questionWrong() {
   countdown -= 5;
   scoreboard -= 3;
   scoreboardElement.textContent = scoreboard;
+  feedbackTextElement.textContent = feedbackWrong;
 }
 
 function questionCorrect() {
@@ -242,6 +241,8 @@ function submitPage() {
   questionsAskedElement.style.visibility = "hidden";
   inputElement.style.visibility = "visible";
   submitButtonElement.style.visibility = "visible";
+  scoreboardElement.textContent = "";
+  questionTimerElement.textContent = "";
 }
 
 inputElement.addEventListener("input", updateValue);
