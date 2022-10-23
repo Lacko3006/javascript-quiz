@@ -9,7 +9,7 @@ const answerButtonElement3 = document.querySelector("#button3");
 const answerButtonElement4 = document.querySelector("#button4");
 const submitButtonElement = document.querySelector("#submit-button");
 const feedbackTextElement = document.querySelector("#feedback");
-const scoreBoardElement = document.querySelector("#scoreboard");
+const scoreboardElement = document.querySelector("#scoreboard");
 const arrayOfButton = document.querySelectorAll("article button");
 const inputElement = document.querySelector("#textbox");
 const inputText = document.querySelector("#text");
@@ -31,17 +31,17 @@ for (let button of arrayOfButton) {
 
 hiddenButton();
 
-let scoreBoard = 0;
+let scoreboard = 0;
 
-const feedbackRight = ["Correct!"];
-const feedbackWrong = ["Wrong"];
-const feedbackClear = [""];
-const feedbackLose = ["You Lose!"];
+const feedbackCorrect = "Correct!";
+const feedbackWrong = "Wrong";
+const feedbackClear = "";
+const feedbackLose = "You Lose!";
 
 questionStartBtn.addEventListener("click", quizStart);
 
 function quizStart() {
-  scoreBoardElement.textContent = scoreBoard;
+  scoreboardElement.textContent = scoreboard;
   question1();
   visibleButton();
   countdown = 60;
@@ -49,7 +49,7 @@ function quizStart() {
   const timer = setInterval(() => {
     countdown--;
     questionTimerElement.textContent = countdown;
-    if (countdown === 0) {
+    if (countdown === 0 || countdown < 0) {
       loseGame();
     }
   }, 1000);
@@ -146,11 +146,12 @@ function question5() {
 
 function loseGame() {
   titleElement.textContent = feedbackLose;
+  submitPage();
   clearInterval(timer);
 }
 
 function clearFeedback() {
-  feedbackCountdown = 5;
+  feedbackCountdown = 10;
   feedbackTimer = setInterval(() => {
     feedbackCountdown--;
     feedbackTextElement.textContent = feedbackClear;
@@ -158,14 +159,16 @@ function clearFeedback() {
 }
 
 function questionWrong() {
-  scoreBoardElement.textContent = scoreBoard;
   countdown -= 5;
-  scoreBoard =- 3;
+  scoreboard -= 3;
+  scoreboardElement.textContent = scoreboard;
 }
 
 function questionCorrect() {
-  scoreBoardElement.textContent = scoreBoard;
-  scoreBoard =+ 5;
+  scoreboard += 5;
+  scoreboardElement.textContent = scoreboard;
+  feedbackTextElement.textContent = feedbackCorrect;
+  return;
 }
 
 function buttonListener(event) {
@@ -191,7 +194,6 @@ function buttonListener(event) {
         break;
       }
     case answerButtonElement3:
-      console.log(answerButtonElement1.dataset.isCorrect);
       if (answerButtonElement3.dataset.isCorrect === "true") {
         questionCorrect();
         questionArray[selectedQuestion]();
@@ -232,6 +234,7 @@ function visibleButton() {
 }
 
 function submitPage() {
+  // if ()
   answerButtonElement1.style.visibility = "hidden";
   answerButtonElement2.style.visibility = "hidden";
   answerButtonElement3.style.visibility = "hidden";
@@ -250,5 +253,5 @@ function updateValue(initials) {
 submitButtonElement.addEventListener("click", saveInput);
 function saveInput() {
   localStorage.setItem("Initials", inputText.textContent);
-  localStorage.setItem("Score", scoreBoard);
+  localStorage.setItem("Score", scoreboard);
 }
