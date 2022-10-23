@@ -8,6 +8,7 @@ const answerButtonElement2 = document.querySelector("#button2");
 const answerButtonElement3 = document.querySelector("#button3");
 const answerButtonElement4 = document.querySelector("#button4");
 const feedbackTextElement = document.querySelector("#feedback");
+const scoreBoardElement = document.querySelector("#scoreboard");
 const arrayOfButton = document.querySelectorAll("article button");
 
 let questionArray = [question1, question2, question3, question4, question5, submitPage];
@@ -27,6 +28,7 @@ const feedbackLose = ["You Lose!"];
 questionStartBtn.addEventListener("click", quizStart);
 
 function quizStart() {
+  questionCorrect();
   question1();
   countdown = 60;
   questionTimerElement.textContent = countdown;
@@ -40,7 +42,7 @@ function quizStart() {
 }
 
 let countdown;
-
+let timer;
 function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
   let question1Choice1 = ["Mjolnir"];
@@ -160,7 +162,8 @@ function questionWrong() {
 }
 
 function questionCorrect(){
-
+  scoreBoardElement.textContent = scoreBoard
+scoreBoard + 5;
 }
 
 function buttonListener(event) {
