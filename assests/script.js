@@ -12,7 +12,7 @@ const feedbackTextElement = document.querySelector("#feedback");
 const scoreBoardElement = document.querySelector("#scoreboard");
 const arrayOfButton = document.querySelectorAll("article button");
 const inputElement = document.querySelector("#textbox");
-
+const inputText = document.querySelector("#text");
 
 let questionArray = [question1, question2, question3, question4, question5, submitPage];
 
@@ -240,11 +240,16 @@ function submitPage() {
   submitButtonElement.style.visibility = "visible"
 }
 
-let inputText = inputElement
-inputText = "";
+//submitButtonElement.addEventListener("click", saveInput);
+inputElement.addEventListener("input", updateValue);
 
-submitButtonElement.addEventListener("click", saveInput);
-function saveInput() {
-localStorage.setItem("Initials", inputElement)
+function updateValue(initials) {
+  inputText.textContent = initials.target.value;
+}
 
+submitButtonElement.addEventListener("click", saveInput)
+function saveInput(){
+  console.log("hello")
+  localStorage.setItem("Initials", inputText.textContent)
+  
 }
