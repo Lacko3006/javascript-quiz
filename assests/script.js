@@ -10,7 +10,7 @@ const answerButtonElement4 = document.querySelector("#button4");
 const feedbackTextElement = document.querySelector("#feedback");
 const arrayOfButton = document.querySelectorAll("article button");
 
-let questionArray = [question1, question2, question3, question4, question5];
+let questionArray = [question1, question2, question3, question4, question5, submitPage];
 
 let selectedQuestion = 1;
 
@@ -18,7 +18,7 @@ for (let button of arrayOfButton) {
   button.addEventListener("click", buttonListener);
 }
 
-let countdown;
+let scoreBoard = 0;
 const feedbackRight = ["Correct!"];
 const feedbackWrong = ["Wrong"];
 const feedbackClear = [""];
@@ -38,6 +38,8 @@ function quizStart() {
     }
   }, 1000);
 }
+
+let countdown;
 
 function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
@@ -117,9 +119,13 @@ function question5() {
   const question5Choice4 = ["Dog"];
   questionsAskedElement.textContent = questionAsked5;
   answerButtonElement1.textContent = question5Choice1;
+  answerButtonElement1.dataset.isCorrect = true;
   answerButtonElement2.textContent = question5Choice2;
+  answerButtonElement2.dataset.isCorrect = false;
   answerButtonElement3.textContent = question5Choice3;
+  answerButtonElement3.dataset.isCorrect = false;
   answerButtonElement4.textContent = question5Choice4;
+  answerButtonElement4.dataset.isCorrect = false;
   // code what answer is true / false
   document.addEventListener("click", (event) => {
     switch (event.target) {
@@ -149,8 +155,12 @@ function clearFeedback() {
 }
 
 function questionWrong() {
-  timer - 5;
+  countdown - 5;
   console.log("Hello");
+}
+
+function questionCorrect(){
+
 }
 
 function buttonListener(event) {
@@ -171,7 +181,7 @@ function buttonListener(event) {
       } // decrease timer(countdown) and remove score
       else {
       if (answerButtonElement2 !== true)
-        
+        questionWrong();
         // minus time function
         break;}
     case answerButtonElement3:
@@ -189,4 +199,9 @@ function buttonListener(event) {
       }
       else break;
   }
+}
+
+
+function submitPage() {
+  console.log("Hello")
 }
