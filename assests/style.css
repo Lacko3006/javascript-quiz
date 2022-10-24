@@ -1,6 +1,7 @@
-h1 {
+h1, h2 {
     display: flex;
     justify-content: center;
+    margin: 30px;
 }
 
 div.start-button {
@@ -15,13 +16,23 @@ article div {
     justify-content: center;
 }
 
+article.questions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .submit {
 display: flex;
 flex-direction: column;
 align-items: center;
-
 }
 
 input {
     margin: 5px;
+}
+
+#feedback {
+    display: flex;
+    justify-content: center;
 }

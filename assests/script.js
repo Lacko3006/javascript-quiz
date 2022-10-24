@@ -1,4 +1,5 @@
 const titleElement = document.querySelector("#title");
+const title2Element = document.querySelector("#title-2")
 const questionStartBtn = document.querySelector("#button");
 const questionsElement = document.querySelector("#questions");
 const questionTimerElement = document.querySelector("#timer");
@@ -34,6 +35,7 @@ for (let button of arrayOfButton) {
 }
 
 hiddenButton();
+subheaderDivElement.style.visibility = "hidden";
 
 let scoreboard = 0;
 
@@ -51,6 +53,8 @@ function quizStart() {
   visibleButton();
   countdown = 60;
   questionTimerElement.textContent = countdown;
+  subheaderDivElement.style.visibility = "visible";
+  title2Element.style.visibility = "hidden";
   const timer = setInterval(() => {
     countdown--;
     questionTimerElement.textContent = countdown;
