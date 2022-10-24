@@ -56,7 +56,6 @@ function quizStart() {
     if (countdown === 0 || countdown < 0) {
       loseGame();
       clearInterval(countdown);
-      clearFeedback();
     }
   }, 1000);
 }
@@ -152,7 +151,13 @@ function question5() {
 
 function loseGame() {
   titleElement.textContent = feedbackLose;
-  submitPage();
+  answerButtonElement1.style.visibility = "hidden";
+  answerButtonElement2.style.visibility = "hidden";
+  answerButtonElement3.style.visibility = "hidden";
+  answerButtonElement4.style.visibility = "hidden";
+  questionsAskedElement.style.visibility = "hidden";
+  feedbackTextElement.textContent = "";
+  questionTimerElement.textContent = "";
   clearInterval(countdown);
 }
 
@@ -237,7 +242,6 @@ function visibleButton() {
 function submitPage() {
   if (countdown > 0 ) {
     clearInterval(countdown)
-    console.log("hello")
   }
   titleElement.textContent = feedbackWin;
   answerButtonElement1.style.visibility = "hidden";
