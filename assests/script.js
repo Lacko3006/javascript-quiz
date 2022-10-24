@@ -2,6 +2,7 @@ const titleElement = document.querySelector("#title");
 const questionStartBtn = document.querySelector("#button");
 const questionsElement = document.querySelector("#questions");
 const questionTimerElement = document.querySelector("#timer");
+const questionTitleElement = document.querySelector("#time-remaining")
 const questionsAskedElement = document.querySelector("#questions");
 const answerButtonElement1 = document.querySelector("#button1");
 const answerButtonElement2 = document.querySelector("#button2");
@@ -244,6 +245,9 @@ function submitPage() {
   questionTimerElement.textContent = "";
   submitDivElement.style.visibility = "visible";
   inputText.style.visibility = "hidden";
+  feedbackTextElement.textContent = "";
+  questionTimerElement.textContent = "";
+  questionTitleElement.textContent = "";
 }
 
 inputElement.addEventListener("input", updateValue);
@@ -259,5 +263,4 @@ function saveInput() {
   savedInitialsElement.textContent = inputText.textContent + " Score: " + scoreboard;
   submitButtonElement.style.visibility = "hidden";
   inputElement.style.visibility = "hidden";
-
 }
