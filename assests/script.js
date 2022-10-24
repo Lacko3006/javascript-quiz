@@ -277,5 +277,3 @@ function saveInput() {
   submitButtonElement.style.visibility = "hidden";
   inputElement.style.visibility = "hidden";
 }
-
-console.log(countdown)
