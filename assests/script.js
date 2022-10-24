@@ -60,7 +60,9 @@ function quizStart() {
     questionTimerElement.textContent = countdown;
     if (countdown === 0 || countdown < 0) {
       loseGame();
-      clearInterval(countdown);
+      clearInterval(timer);
+    } if (selectedQuestion === 5 ||selectedQuestion > 5) {
+      clearInterval(timer);
     }
   }, 1000);
 }
@@ -162,7 +164,6 @@ function loseGame() {
   feedbackTextElement.textContent = "";
   questionTimerElement.textContent = "";
   subheaderDivElement.textContent = "";
-  clearInterval(countdown);
 }
 
 function questionWrong() {
@@ -244,9 +245,6 @@ function visibleButton() {
 }
 
 function submitPage() {
-  if (countdown > 0 ) {
-    clearInterval(countdown)
-  }
   titleElement.textContent = feedbackWin;
   titleElement.style.fontSize = "xxx-large";
   answerButtonElement1.style.visibility = "hidden";
@@ -260,7 +258,6 @@ function submitPage() {
   feedbackTextElement.textContent = "";
   questionTimerElement.textContent = "";
   questionTitleElement.textContent = "";
-  clearInterval(countdown);
 }
 
 inputElement.addEventListener("input", updateValue);

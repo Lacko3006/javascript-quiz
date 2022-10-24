@@ -10,3 +10,4 @@ This project was completed to further pursue different skills used in JavaScript
 ![JavaScript Marvel Quiz](./assests/images/javascript-quiz.gif)
 
 ## Link
+https://lacko3006.github.io/javascript-quiz/
