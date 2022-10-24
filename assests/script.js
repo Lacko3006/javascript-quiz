@@ -38,11 +38,12 @@ hiddenButton();
 subheaderDivElement.style.visibility = "hidden";
 
 let scoreboard = 0;
+let countdown = 60;
 
 const feedbackCorrect = "Correct!";
-const feedbackWrong = "Wrong";
+const feedbackWrong = "Wrong! Please try again!";
 const feedbackClear = "";
-const feedbackLose = "You Lose! Press Start Quiz to try again!";
+const feedbackLose = "You Lose! Press refresh to try again";
 const feedbackWin = "You are a winner!"
 
 questionStartBtn.addEventListener("click", quizStart);
@@ -51,7 +52,6 @@ function quizStart() {
   scoreboardElement.textContent = scoreboard;
   question1();
   visibleButton();
-  countdown = 60;
   questionTimerElement.textContent = countdown;
   subheaderDivElement.style.visibility = "visible";
   title2Element.style.visibility = "hidden";
@@ -65,8 +65,6 @@ function quizStart() {
   }, 1000);
 }
 
-let countdown;
-let timer;
 function question1() {
   const questionAsked1 = ["What is Thors hammer called?"];
   let question1Choice1 = ["Mjolnir"];
@@ -165,7 +163,6 @@ function loseGame() {
   questionTimerElement.textContent = "";
   subheaderDivElement.textContent = "";
   clearInterval(countdown);
-  questionStartBtn.style.visibility = "visible";
 }
 
 function questionWrong() {
@@ -175,13 +172,13 @@ function questionWrong() {
     scoreboard = 0;
   }
   scoreboardElement.textContent = scoreboard;
-  feedbackTextElement.textContent = feedbackWrong;
+  feedbackTextElement.textContent = feedbackWrong + " -5 seconds & -3 points";
 }
 
 function questionCorrect() {
   scoreboard += 5;
   scoreboardElement.textContent = scoreboard;
-  feedbackTextElement.textContent = feedbackCorrect;
+  feedbackTextElement.textContent = feedbackCorrect + " +5 points";
   return;
 }
 
@@ -263,7 +260,7 @@ function submitPage() {
   feedbackTextElement.textContent = "";
   questionTimerElement.textContent = "";
   questionTitleElement.textContent = "";
-  clearInterval(countdown)
+  clearInterval(countdown);
 }
 
 inputElement.addEventListener("input", updateValue);
@@ -280,3 +277,5 @@ function saveInput() {
   submitButtonElement.style.visibility = "hidden";
   inputElement.style.visibility = "hidden";
 }
+
+console.log(countdown)
