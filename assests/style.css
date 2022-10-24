@@ -15,6 +15,10 @@ article div {
     justify-content: center;
 }
 
+h3.scoreboard {
+    display: flex;
+    justify-content: center;
+}
 
 .submit {
 display: flex;
