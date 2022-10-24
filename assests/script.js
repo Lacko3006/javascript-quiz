@@ -11,6 +11,8 @@ const submitButtonElement = document.querySelector("#submit-button");
 const feedbackTextElement = document.querySelector("#feedback");
 const scoreboardElement = document.querySelector("#scoreboard");
 const arrayOfButton = document.querySelectorAll("article button");
+const savedInitialsElement = document.querySelector("#saved-initials")
+const submitDivElement = document.querySelector("#submit")
 const inputElement = document.querySelector("#textbox");
 const inputText = document.querySelector("#text");
 
@@ -37,6 +39,7 @@ const feedbackCorrect = "Correct!";
 const feedbackWrong = "Wrong";
 const feedbackClear = "";
 const feedbackLose = "You Lose!";
+const feedbackWin = "You are a winner!"
 
 questionStartBtn.addEventListener("click", quizStart);
 
@@ -152,10 +155,6 @@ function loseGame() {
   clearInterval(countdown);
 }
 
-function clearFeedback() {
-    feedbackTextElement.textContent = feedbackClear;
-}
-
 function questionWrong() {
   countdown -= 5;
   scoreboard -= 3;
@@ -220,8 +219,7 @@ function hiddenButton() {
   answerButtonElement2.style.visibility = "hidden";
   answerButtonElement3.style.visibility = "hidden";
   answerButtonElement4.style.visibility = "hidden";
-  inputElement.style.visibility = "hidden";
-  submitButtonElement.style.visibility = "hidden";
+  submitDivElement.style.visibility = "hidden";
 }
 
 function visibleButton() {
@@ -237,15 +235,14 @@ function submitPage() {
     clearInterval(countdown)
     console.log("hello")
   }
+  titleElement.textContent = feedbackWin;
   answerButtonElement1.style.visibility = "hidden";
   answerButtonElement2.style.visibility = "hidden";
   answerButtonElement3.style.visibility = "hidden";
   answerButtonElement4.style.visibility = "hidden";
   questionsAskedElement.style.visibility = "hidden";
-  inputElement.style.visibility = "visible";
-  submitButtonElement.style.visibility = "visible";
-  scoreboardElement.textContent = "";
   questionTimerElement.textContent = "";
+  submitDivElement.style.visibility = "visible";
   inputText.style.visibility = "hidden";
 }
 
@@ -259,4 +256,8 @@ submitButtonElement.addEventListener("click", saveInput);
 function saveInput() {
   localStorage.setItem("Initials", inputText.textContent);
   localStorage.setItem("Score", scoreboard);
+  savedInitialsElement.textContent = inputText.textContent + " Score: " + scoreboard;
+  submitButtonElement.style.visibility = "hidden";
+  inputElement.style.visibility = "hidden";
+
 }

@@ -9,15 +9,20 @@ div, .button {
     justify-content: center;
 }
 
-article {
+article div {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+
 .submit {
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: center;
+
+}
+
+input {
+    margin: 5px;
 }
