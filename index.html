@@ -10,8 +10,10 @@
 <body>
     <header>
         <h1 id="title">JavaScript Quiz</h1>
+        <div id="sub-header">
         <h3 >Score: <span id="scoreboard"></span></h3>
         <h3><span id="time-remaining">Time remaining: <span id='timer'></span></h3>
+        </div>
     </header>
     <article class="questions">
     <p label="questions" id="questions"></p>
@@ -22,11 +24,11 @@
 </article>
     <div class="submit" id="submit">
         <h3 id ="saved-initials">Input Initials Here  </h3>
-    <input id="textbox"> </input>
+    <input placeholder="Enter Initials Here" id="textbox"> </input>
     <p id="text"></p>
     <button id="submit-button">Submit</button>
     </div>
-    <div>
+    <div class="start-button">
     <button id="button" class="button">Start Quiz</button>
     </div>
     <p id="feedback"></p>

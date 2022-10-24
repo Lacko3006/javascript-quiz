@@ -13,6 +13,7 @@ const feedbackTextElement = document.querySelector("#feedback");
 const scoreboardElement = document.querySelector("#scoreboard");
 const arrayOfButton = document.querySelectorAll("article button");
 const savedInitialsElement = document.querySelector("#saved-initials")
+const subheaderDivElement = document.querySelector("#sub-header")
 const submitDivElement = document.querySelector("#submit")
 const inputElement = document.querySelector("#textbox");
 const inputText = document.querySelector("#text");
@@ -39,7 +40,7 @@ let scoreboard = 0;
 const feedbackCorrect = "Correct!";
 const feedbackWrong = "Wrong";
 const feedbackClear = "";
-const feedbackLose = "You Lose!";
+const feedbackLose = "You Lose! Press Start Quiz to try again!";
 const feedbackWin = "You are a winner!"
 
 questionStartBtn.addEventListener("click", quizStart);
@@ -158,7 +159,9 @@ function loseGame() {
   questionsAskedElement.style.visibility = "hidden";
   feedbackTextElement.textContent = "";
   questionTimerElement.textContent = "";
+  subheaderDivElement.textContent = "";
   clearInterval(countdown);
+  questionStartBtn.style.visibility = "visible";
 }
 
 function questionWrong() {
