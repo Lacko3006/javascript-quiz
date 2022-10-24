@@ -159,6 +159,9 @@ function loseGame() {
 function questionWrong() {
   countdown -= 5;
   scoreboard -= 3;
+  if (scoreboard < 0) {
+    scoreboard = 0;
+  }
   scoreboardElement.textContent = scoreboard;
   feedbackTextElement.textContent = feedbackWrong;
 }
