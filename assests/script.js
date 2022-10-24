@@ -251,6 +251,7 @@ function submitPage() {
     clearInterval(countdown)
   }
   titleElement.textContent = feedbackWin;
+  titleElement.style.fontSize = "xxx-large";
   answerButtonElement1.style.visibility = "hidden";
   answerButtonElement2.style.visibility = "hidden";
   answerButtonElement3.style.visibility = "hidden";
@@ -262,6 +263,7 @@ function submitPage() {
   feedbackTextElement.textContent = "";
   questionTimerElement.textContent = "";
   questionTitleElement.textContent = "";
+  clearInterval(countdown)
 }
 
 inputElement.addEventListener("input", updateValue);
